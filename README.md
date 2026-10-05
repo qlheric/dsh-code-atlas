@@ -31,16 +31,14 @@ _research/dsh-cron-upstream/lib/channels.js :: F:Delivery channels and router (#
 
 ## 安装
 
-> **尚未发布到 npm / GitHub**（仓库命名与发布待定）。现在就有两种装法：
-
-**A. 本地装（现在就能用，已验证）** —— 把本目录拷进 profile 的 `node_modules/@qlheric/dsh-code-atlas`，并在该 profile 的 `package.json` 里给 `dsh.profile.bundles` 加一行 `"@qlheric/dsh-code-atlas"`（`web-tree-sitter` 与 `tree-sitter-wasms` 两个 WASM 依赖要在同一 profile 里可解析），重启 dsh。
-
-**B. 发布后（一条命令）**
 ```bash
 dsh plugin --profile <你的 profile> add github:qlheric/dsh-code-atlas
 ```
 
-工具为 `code_atlas_index` / `code_atlas_map` / `code_atlas_search` / `code_atlas_symbols` / `code_atlas_fras`。
+两个 WASM 依赖（`web-tree-sitter` / `tree-sitter-wasms`）会随包自动装上。装完重启 dsh，工具为 `code_atlas_index` / `code_atlas_map` / `code_atlas_search` / `code_atlas_symbols` / `code_atlas_fras`。
+
+> **桌面端（Electron）注意**：`desktop` profile 被 Electron 独占（官方 CLI 会拒），那里只能手写 `dsh.profile.bundles` + 用 pnpm 装（本机就是这么装的）；**其它 profile** 用上面这条命令即可，CLI 会自动同步 bundles。
+> npm 尚未发布，请用上面的 GitHub 源。
 
 ## 工具
 
@@ -93,7 +91,7 @@ dsh plugin --profile <你的 profile> add github:qlheric/dsh-code-atlas
 
 ```bash
 pnpm install          # 只装两个 WASM 依赖
-node --test           # 18 项，全绿
+node --test           # 19 项，全绿
 ```
 
 **沙箱验收判据**（本机实测过）：干净 profile 启动后日志出现

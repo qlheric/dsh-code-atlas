@@ -29,16 +29,14 @@ Measured on a real workspace here:
 
 ## Install
 
-> **Not published yet** (repo name and release pending). Two ways today:
-
-**A. Local (works now, verified)** — copy this directory into the profile's `node_modules/@qlheric/dsh-code-atlas`, add `"@qlheric/dsh-code-atlas"` to that profile's `dsh.profile.bundles` (its two WASM dependencies, `web-tree-sitter` and `tree-sitter-wasms`, must resolve in the same profile), restart dsh.
-
-**B. Once published (one command)**
 ```bash
 dsh plugin --profile <your-profile> add github:qlheric/dsh-code-atlas
 ```
 
-Tools: `code_atlas_index`, `code_atlas_map`, `code_atlas_search`, `code_atlas_symbols`, `code_atlas_fras`.
+Both WASM dependencies (`web-tree-sitter`, `tree-sitter-wasms`) come along automatically. Restart dsh afterwards; tools: `code_atlas_index`, `code_atlas_map`, `code_atlas_search`, `code_atlas_symbols`, `code_atlas_fras`.
+
+> **Desktop (Electron) note**: the `desktop` profile is owned by the Electron app (the CLI refuses it) — there you write `dsh.profile.bundles` and install with pnpm, which is how it is installed on this machine. Other profiles can use the command above.
+> Not published to npm yet — use the GitHub source.
 
 ## Tools
 
@@ -91,7 +89,7 @@ Tools: `code_atlas_index`, `code_atlas_map`, `code_atlas_search`, `code_atlas_sy
 
 ```bash
 pnpm install          # two WASM dependencies only
-node --test           # 18 tests, all green
+node --test           # 19 tests, all green
 ```
 
 **Sandbox acceptance** (verified here): in a clean profile the boot log shows
