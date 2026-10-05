@@ -1,4 +1,4 @@
 node_modules/
 .dsh-code-atlas/
+.npmrc
 *.log
-
