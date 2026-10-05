@@ -21,7 +21,7 @@
 实测（本机一个真实工作区）：
 
 ```
-252 文件 · 2718 符号 · 0.82 秒          （tree-sitter 252 文件 / 正则兜底 0）
+252 文件 · 2723 符号 · 0.82 秒          （tree-sitter 252 文件 / 正则兜底 0）
 
 # 仓库地图（前 3）
 _research/dsh-cron-upstream/lib/logger.js :: F:Unified logging wrapper for dsh-cron (#204) | 被依赖 15 | 导出 2 | 关键符号 setLogger@7 logger@17
