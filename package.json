@@ -34,6 +34,17 @@
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qlheric/dsh-code-atlas.git"
+  },
+  "homepage": "https://github.com/qlheric/dsh-code-atlas#readme",
+  "bugs": {
+    "url": "https://github.com/qlheric/dsh-code-atlas/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "tree-sitter-wasms": "0.1.13",
     "web-tree-sitter": "0.25.10"
