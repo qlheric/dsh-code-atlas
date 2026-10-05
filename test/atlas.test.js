@@ -17,10 +17,12 @@ test('scan：忽略目录/非代码/二进制，路径一律 POSIX', async () =>
   assert.equal(paths.some((p) => p.includes('node_modules')), false)
   assert.equal(paths.some((p) => p.startsWith('dist/')), false)
   assert.equal(paths.some((p) => p.endsWith('.md')), false)
-  assert.ok(stats.ignoredDirs >= 2)
+  assert.ok(stats.ignoredDirs >= 1) // dist/ 必在；node_modules/ 是 git 忽略的本地 fixture，新克隆里可能不存在
   assert.ok(stats.skippedBinary >= 1)
   assert.equal(root, FIXTURE)
   assert.equal(paths.every((p) => !p.includes('\\')), true)
+  assert.equal(paths.some((p) => p.includes('node_modules')), false)
+  assert.equal(paths.some((p) => p.startsWith('dist/')), false)
 })
 
 test('语言表与判定', () => {
