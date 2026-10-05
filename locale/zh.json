@@ -1,0 +1,4 @@
+{
+  "title": "DSH 代码图谱",
+  "description": "tree-sitter WASM 符号索引 + 仓库地图 + 每文件一行 F/R/A/S 认知层（F 职责 / R 关系 / A 入口 / S 不能弄错的约束），零原生编译。"
+}

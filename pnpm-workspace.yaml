@@ -1,0 +1,8 @@
+packages:
+  - .
+
+nodeLinker: hoisted
+autoInstallPeers: false
+
+# 复用既有 store（本机 DSH 生态的依赖都在这里），避免 G: 盘再建一份
+storeDir: C:\Users\38628\AppData\Local\pnpm\store\v11

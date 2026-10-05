@@ -1,0 +1,4 @@
+{
+  "title": "DSH Code Atlas",
+  "description": "tree-sitter WASM symbol index, ranked repo map, and a one-line-per-file F/R/A/S cognition layer (duty / relations / entry points / hard constraints). No native builds."
+}

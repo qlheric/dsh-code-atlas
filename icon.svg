@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="DSH Code Atlas">
+  <!-- Atlas mark: a folded map grid with a located pin, over file/symbol bars. -->
+  <rect x="5" y="12" width="54" height="40" rx="6" fill="#101a33"/>
+  <path d="M5 30h54M23 12v40M41 12v40" stroke="#4d6bfe" stroke-width="1.6" opacity="0.55"/>
+  <path d="M23 12 L41 12 L41 52 L23 52 Z" fill="#4d6bfe" opacity="0.12"/>
+  <circle cx="32" cy="27" r="9" fill="none" stroke="#7aa2ff" stroke-width="2.4"/>
+  <circle cx="32" cy="27" r="3" fill="#7aa2ff"/>
+  <path d="M32 36v10" stroke="#7aa2ff" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="12" y="44" width="8" height="4" rx="1.4" fill="#ffffff" opacity="0.85"/>
+  <rect x="46" y="16" width="8" height="4" rx="1.4" fill="#ffffff" opacity="0.55"/>
+</svg>

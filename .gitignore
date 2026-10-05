@@ -1,0 +1,4 @@
+node_modules/
+.dsh-code-atlas/
+*.log
+

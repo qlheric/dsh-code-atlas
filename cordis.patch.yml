@@ -1,0 +1,7 @@
+# dsh-code-atlas —— bundle patch layer
+#
+# 把代码图谱插入 profile 的层栈（id 固定为 code-atlas，profile patch 可定向覆盖它的 config）。
+- insert:
+    - id: code-atlas
+      name: '@qlheric/dsh-code-atlas'
+      config: {}
