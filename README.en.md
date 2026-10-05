@@ -19,7 +19,7 @@ The cost of exploring a codebase is not *reading*, it is *not knowing what to re
 Measured on a real workspace here:
 
 ```
-252 files · 2718 symbols · 0.82 s        (tree-sitter 252 files / regex fallback 0)
+252 files · 2723 symbols · 0.82 s        (tree-sitter 252 files / regex fallback 0)
 
 # repo map (top 3)
 .../lib/logger.js :: F:Unified logging wrapper for dsh-cron (#204) | importers 15 | exports 2 | key symbols setLogger@7 logger@17
