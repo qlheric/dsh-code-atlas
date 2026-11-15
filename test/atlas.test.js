@@ -122,3 +122,11 @@ test('atlas 装配与 F/R/A/S 渲染', async () => {
   assert.match(filtered, /src\/lib\/util\.js/)
   assert.equal(filtered.includes('src/index.js'), false)
 })
+
+
+test('scan：总字节预算上限会截断，不无限驻留正文', async () => {
+  const { files, stats } = await scanWorkspace(FIXTURE, { maxTotalBytes: 1 })
+  assert.equal(files.length, 0)
+  assert.equal(stats.truncated, true)
+  assert.ok(stats.skippedBytesBudget > 0)
+})

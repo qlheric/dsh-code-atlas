@@ -46,7 +46,11 @@ pub struct Svc { v: i32 }
 enum Private { A }
 `
 
-test('WASM 语法可加载（本机已验证组合）', async () => {
+test('WASM 语法可加载（本机已验证组合）', async (t) => {
+  if (!(await supportsLanguage('javascript'))) {
+    t.skip('tree-sitter WASM 依赖未安装：先 npm install')
+    return
+  }
   assert.equal(await supportsLanguage('javascript'), true)
   assert.equal(await supportsLanguage('python'), true)
   const grammars = await availableGrammars()
@@ -56,8 +60,9 @@ test('WASM 语法可加载（本机已验证组合）', async () => {
   assert.equal(await supportsLanguage('brainfuck'), false) // 语言表外的问 null，不抛
 })
 
-test('JS/TS 抽取：函数/类/箭头函数/方法 + 导出判定', async () => {
+test('JS/TS 抽取：函数/类/箭头函数/方法 + 导出判定', async (t) => {
   const symbols = await extractSymbolsWasm(JS, 'javascript', 'a.js')
+  if (symbols === null) { t.skip('tree-sitter WASM 依赖未安装：先 npm install'); return }
   const byName = Object.fromEntries(symbols.map((s) => [s.name, s]))
   assert.equal(byName.alpha.kind, 'function')
   assert.equal(byName.alpha.exported, true)
@@ -74,8 +79,10 @@ test('JS/TS 抽取：函数/类/箭头函数/方法 + 导出判定', async () =>
   assert.equal(symbols.every((s) => s.source === 'tree-sitter'), true)
 })
 
-test('Python/Go/Rust 抽取与可见性', async () => {
-  const py = Object.fromEntries((await extractSymbolsWasm(PY, 'python', 'a.py')).map((s) => [s.name, s]))
+test('Python/Go/Rust 抽取与可见性', async (t) => {
+  const pySymbols = await extractSymbolsWasm(PY, 'python', 'a.py')
+  if (pySymbols === null) { t.skip('tree-sitter WASM 依赖未安装：先 npm install'); return }
+  const py = Object.fromEntries(pySymbols.map((s) => [s.name, s]))
   assert.equal(py.alpha.kind, 'function')
   assert.equal(py.Beta.kind, 'class')
   assert.equal(py.method.kind, 'method')
@@ -93,8 +100,9 @@ test('Python/Go/Rust 抽取与可见性', async () => {
   assert.equal(rust.Svc.kind, 'struct')
 })
 
-test('WASM 与正则层对同一文件的口径差（记录，不是要求相等）', async () => {
+test('WASM 与正则层对同一文件的口径差（记录，不是要求相等）', async (t) => {
   const wasm = await extractSymbolsWasm(JS, 'javascript', 'a.js')
+  if (wasm === null) { t.skip('tree-sitter WASM 依赖未安装：先 npm install'); return }
   const lite = extractSymbolsLite(JS, 'javascript')
   const wasmNames = wasm.map((s) => s.name).sort()
   const liteNames = lite.map((s) => s.name).sort()
